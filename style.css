@@ -116,7 +116,7 @@ input[type="text"]:focus {
 }
 
 #localText::before {
-    content: url(sun.svg);
+    content: url(img/sun.svg);
     margin-right: 8px;
     margin-top: 1px;
 }
@@ -164,9 +164,13 @@ article {
     visibility: hidden;
     transition: all 300ms;
 }
+#chart_div {
+  background-color: transparent !important;
+  padding: 0 !important;
+}
 
 .hamburger-icon::after{
-    content: url(menu.svg);
+    content: url(img/menu.svg);
 }
 
 @media screen and (max-width: 800px){
@@ -191,3 +195,33 @@ article {
         transition: all 300ms;
     }
 }
+
+/**********************************LOADING SESSION**********************************************/
+
+.active{
+    display: none;
+    visibility: hidden;
+}
+
+section#skLoading article{
+    width: 100%;
+    height: 250px;
+    box-shadow: 4px 4px 39px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+    background: linear-gradient(90deg, #447A9C  0%, rgb(241, 241, 241) 100%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 3s ease-in-out infinite;
+}
+
+
+@keyframes skeleton-loading {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  } 

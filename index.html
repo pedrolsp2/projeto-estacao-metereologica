@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>UEMG | Estação Meterológica</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link
@@ -17,7 +17,7 @@
 
         <aside id="false">
             <div class="logo">
-                <img src="logo.png" alt="Logo" id="logo">
+                <img src="img/logo.png" alt="Logo" id="logo">
             </div>
         </aside>
 
@@ -26,18 +26,18 @@
                 <div class="hamburger-icon"></div>
                 <span id="search">
                     <input type="text" placeholder="Pesquise por região"
-                        id="Txtsearch"><img src="map.svg" alt="Pesquisar"
+                        id="Txtsearch"><img src="img/map.svg" alt="Pesquisar"
                         id="bntSearch">
                 </span>
                 <span id="icons">
-                    <img src="user.svg" alt="Usuário">
-                    <img src="settings.svg" alt="Pesquisar">
+                    <img src="img/user.svg" alt="Usuário">
+                    <img src="img/settings.svg" alt="Pesquisar">
                 </span>
             </div>
             <div class="local-section">
                 <span id="localTitle">
                     <h1>Frutal/MG</h1>
-                    <small>28 de abril de 2023</small>
+                    <small id="atualDay"></small>
                 </span>
                 <span id="localText">
                     <h1>26 ºC</h1>
@@ -46,13 +46,34 @@
         </nav>
 
         <main>
-            <section>
+            <section id="sectionGrafic" class="active">
+
+                    <figure class="highcharts-figure">
+                        <div id="temperatureChart"></div>
+                    </figure>
+
+                    <figure class="highcharts-figure">
+                        <div id="solarRadiationChart"></div>
+                    </figure>
+
+                    <figure class="highcharts-figure">
+                        <div id="rhChart"></div>
+                    </figure>
+            </section>
+
+
+            <section id="skLoading">
                 <article></article>
                 <article></article>
                 <article></article>
             </section>
         </main>
-
-        <script src="script.js"></script>
+        
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/data.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>
