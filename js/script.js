@@ -70,7 +70,7 @@ fetch('../backend/grafic.php')
 
     /**************************************************************/
 
-    var arrayInfo =[
+    var arrayInfo = [
       ['temperatureChart','Temperatura','Temperatura', dataLabelTemperature],
       ['solarRadiationChart','Radiação Solar','Nível',dataLabelSolarRadiation],
       ['rhChart','Humidade Relativa','Nivel', dataLabelRH],
@@ -83,6 +83,7 @@ fetch('../backend/grafic.php')
     ]
 
     for (var i = 0; i < arrayInfo.length; i++) {
+
       const section = document.querySelector('#sectionGrafic');
       const figure = document.createElement('figure');
       section.appendChild(figure);
@@ -92,91 +93,121 @@ fetch('../backend/grafic.php')
       figure.appendChild(div);
 
       chartGeneration(arrayInfo[i][0], arrayInfo[i][1], arrayInfo[i][2], arrayInfo[i][3]);
+
     }
     
 
   })
 
 
-function chartGeneration(id,nameChart,labelChart,dataChart){
-  Highcharts.chart(`${id}`, {
-    chart: {
-      zoomType: 'x',
-      exporting: false // Desativa o menu de contexto
-    },
-    title: {
-      text: `${nameChart}`,
-      align: 'left'
-    },
-    subtitle: {
-      text: document.ontouchstart === undefined ?
-        'Clique e arraste para zoom de datas' : 'Toque e arraste para dar zoom nas datas',
-      align: 'left'
-    },
-    xAxis: {
-      categories: labelDate,
-      type: 'date',
-      dateTimeLabelFormats: {
-        day: 'e% %b %y'
-      },
-      tickInterval: Math.ceil(labelDate.length / 30) // Define o espaçamento entre os ticks
-    },
-    yAxis: {
-      title: {
-        text: `${labelChart}`
-      }
-    },
-    legend: {
-      enabled: false
-    },
-    plotOptions: {
-      area: {
-        fillColor: {
-          linearGradient: {
-            x1: 0,
-            y1: 0,
-            x2: 0,
-            y2: 1
-          },
-          stops: [
-            [0, Highcharts.getOptions().colors[0]],
-            [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-          ]
-        },
-        marker: {
-          radius: 2
-        },
-        lineWidth: 1,
-        states: {
-          hover: {
-            lineWidth: 1
+  function chartGeneration(id,nameChart,labelChart,dataChart){
+    Highcharts.chart(`${id}`, {
+      chart: {
+        zoomType: 'x',
+        exporting: {
+          enabled: true,
+          buttons: {
+            contextButton: {
+              menuItems: [
+                'downloadCSV',
+                'downloadXLS'
+              ]
+            }
           }
+        }
+      },
+      title: {
+        text: `${nameChart}`,
+        align: 'left'
+      },
+      subtitle: {
+        text: document.ontouchstart === undefined ?
+          'Clique e arraste para zoom de datas' : 'Toque e arraste para dar zoom nas datas',
+        align: 'left'
+      },
+      xAxis: {
+        categories: labelDate,
+        type: 'date',
+        dateTimeLabelFormats: {
+          day: 'e% %b %y'
         },
-        threshold: null
-      }
+        tickInterval: Math.ceil(labelDate.length / 30) // Define o espaçamento entre os ticks
+      },
+      yAxis: {
+        title: {
+          text: `${labelChart}`
+        }
+      },
+      legend: {
+        enabled: false
+      },
+      exporting: {
+        enabled: statusLogin,
+        buttons: {
+            contextButton: {
+                menuItems: [
+                    "downloadCSV",
+                    "downloadXLS",
+                    "viewFullscreen"
+                ]
+            }
+        },
+        menuItemDefinitions: {
+            downloadCSV: {
+                textKey: 'downloadCSV',
+                onclick: function () {
+                    this.downloadCSV();
+                }
+            },
+            downloadXLS: {
+                textKey: 'downloadXLS',
+                onclick: function () {
+                    this.downloadXLS();
+                }
+            },
+            viewFullscreen: {
+                textKey: 'viewFullscreen',
+                onclick: function () {
+                    this.fullscreen.toggle();
+                }
+            }
+        }
     },
-    lang: {
-      contextButtonTitle: 'Menu',
-      decimalPoint: ',',
-      downloadJPEG: 'Baixar imagem JPEG',
-      downloadPDF: 'Baixar arquivo PDF',
-      downloadPNG: 'Baixar imagem PNG',
-      downloadSVG: 'Baixar vetor SVG',
-      loading: 'Carregando...',
-      months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-      noData: 'Sem dados para exibir',
-      numericSymbols: ['k', 'M', 'G', 'T', 'P', 'E'],
-      printChart: 'Imprimir gráfico',
-      resetZoom: 'Redefinir zoom',
-      resetZoomTitle: 'Redefinir zoom para o nível 1:1',
-      shortMonths: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-      thousandsSep: '.',
-      weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
+      plotOptions: {
+        area: {
+          fillColor: {
+            linearGradient: {
+              x1: 0,
+              y1: 0,
+              x2: 0,
+              y2: 1
+            },
+            stops: [
+              [0, Highcharts.getOptions().colors[0]],
+              [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+            ]
+          },
+          marker: {
+            radius: 2
+          },
+          lineWidth: 1,
+          states: {
+            hover: {
+              lineWidth: 1
+            }
+          },
+          threshold: null
+        }
+      },
+      lang: {
+        downloadCSV: 'Baixar CSV',
+        downloadXLS: 'Baixar XLS',
+        viewFullscreen: 'Visualizar em Tela Cheia'
     },
-    series: [{
-      type: 'area',
-      name: `${labelChart}`,
-      data: dataChart
-    }]
-  });
+      series: [{
+        type: 'area',
+        name: `${labelChart}`,
+        data: dataChart
+      }]
+    });
 }
