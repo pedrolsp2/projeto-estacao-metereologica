@@ -1,4 +1,4 @@
-var statusLogin = true
+var statusLogin = true;
 
 /**************** PEGA O DIA ATUAL E POE NA TELA ****************/
 
@@ -14,20 +14,18 @@ txtDate.innerHTML = dataFormatada;
 /**************** RESPONSIVIDADE ****************/
 
 let dashboard = document.querySelector('aside')
-let btnMob = document.querySelector('.hamburger-icon')
+let btnMob = document.querySelector('#btnMob')
 
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 500) {
+    dashboard.style.width = "200px";
+  } else {
+    dashboard.classList.toggle('wdth');
+  }
+});
 
 btnMob.addEventListener("click", () => {
-  if (dashboard.id == 'true') {
-    dashboard.id = 'false'
-    dashboard.style.transform = 'translateX(0px)'
-    btnMob.style.transform = 'translate(200px, 50px)'
-  }
-  else {
-    dashboard.id = 'true'
-    dashboard.style.transform = 'translateX(-350px)'
-    btnMob.style.transform = 'translate(0)'
-  }
+  dashboard.classList.toggle('wdth')
 })
 
 /***************** JSON ********************/

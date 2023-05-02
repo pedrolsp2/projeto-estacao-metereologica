@@ -18,22 +18,33 @@ body {
 }
 
 nav {
-    width: calc(100% - 200px);
-    height: 132px;
+    position: relative;
+    width: 100%;
+    height: 100px;
     background: linear-gradient(271.04deg, #1D3557 -3.12%, #457B9D 90.28%);
     float: right;
     padding: 12px;
     transition: all 300ms;
-}
-
-.info-section,
-.local-section {
-    padding: 6px;
-    width: 100%;
-    height: 50%;
+    z-index: 200;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#logo{
+    width: 72px;
+}
+
+
+.local-section, .info-section{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.info-section{
+    gap: 52px;
 }
 
 img:not(#logo) {
@@ -115,23 +126,18 @@ input[type="text"]:focus {
     color: #fff;
 }
 
-#localText::before {
-    content: url(img/sun.svg);
-    margin-right: 8px;
-    margin-top: 1px;
-}
-
 
 aside {
-    height: 100vh;
+    height: 100%;
     width: 200px;
     position: fixed;
     top: 0;
     background: linear-gradient(180deg, #447A9C 45.52%, #1C4057 100%);
     display: flex;
     justify-content: center;
-    padding-top: 1.2rem;
+    padding-top: 112px;
     transition: all 300ms;
+    z-index: 10;
 }
 
 main {
@@ -173,27 +179,14 @@ article {
     content: url(img/menu.svg);
 }
 
-@media screen and (max-width: 800px){
+.wdth{
+    transform: translateX(0px);
+    width: 70%;
+}
 
-    main{
-        width: 100%;
-        transition: all 300ms;
-    }
-
-    nav{
-        width: 100%;
-        transition: all 300ms;
-    }
-
-    aside{
-        transform: translateX(-350px);
-        transition: all 300ms;
-    }
-    .hamburger-icon{
-        display: block;
-        visibility: visible;
-        transition: all 300ms;
-    }
+#btnMob{
+    display: none;
+    visibility: hidden;
 }
 
 /**********************************LOADING SESSION**********************************************/
@@ -225,3 +218,50 @@ section#skLoading article{
       background-position: 0 0;
     }
   } 
+
+  
+
+@media screen and (max-width: 800px){
+
+    main{
+        width: 100%;
+        transition: all 300ms;
+    }
+
+    nav{
+        width: 100%;
+        transition: all 300ms;
+    }
+
+    aside{
+        transform: translateX(-350px);
+        transition: all 300ms;
+    }
+    .hamburger-icon{
+        display: block;
+        visibility: visible;
+        transition: all 300ms;
+    }
+}
+
+@media screen and (max-width: 500px){
+
+    .info-section{
+        gap: 12px !important;
+    }
+
+    #city{
+        font-size: 1.5rem;
+    }
+
+    #logo, #city, #atualDay, #localText{
+        display: none;
+        visibility: hidden;
+    }
+
+    #btnMob{
+        display: block;
+        visibility: visible;
+        width: 32px;
+    }
+}

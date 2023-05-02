@@ -15,35 +15,28 @@
     </head>
     <body>
 
-        <aside id="false">
-            <div class="logo">
-                <img src="img/logo.png" alt="Logo" id="logo">
-            </div>
-        </aside>
-
         <nav>
+
             <div class="info-section">
-                <div class="hamburger-icon"></div>
-                <span id="search">
-                    <input type="text" placeholder="Pesquise por região"
-                        id="Txtsearch"><img src="img/map.svg" alt="Pesquisar"
-                        id="bntSearch">
-                </span>
-                <span id="icons">
-                    <img src="img/user.svg" alt="Usuário">
-                    <img src="img/settings.svg" alt="Pesquisar">
-                </span>
+                <img src="img/menu.svg" alt="Menu" id="btnMob">
+                <img src="img/logo.png" alt="Logo" id="logo">
+                <div class="local-section">
+                    <span id="localTitle">
+                        <h1 id="city">Frutal/MG</h1>
+                        <small id="atualDay"></small>
+                        <small id="localText">26 ºC</small>
+                    </span>
+                </div>
             </div>
-            <div class="local-section">
-                <span id="localTitle">
-                    <h1>Frutal/MG</h1>
-                    <small id="atualDay"></small>
-                </span>
-                <span id="localText">
-                    <h1>26 ºC</h1>
-                </span>
-            </div>
+
+            <span id="icons">
+                <img src="img/user.svg" alt="Usuário">
+                <img src="img/settings.svg" alt="Pesquisar">
+            </span>
+
         </nav>
+
+        <aside class="wdth"></aside>
 
         <main>
             <section id="sectionGrafic" class="active">
@@ -64,6 +57,5 @@
         <script src="https://code.highcharts.com/modules/export-data.js"></script>
         <script src="https://code.highcharts.com/modules/accessibility.js"></script>
         <script src="js/script.js"></script>
-        <script src="js/chartConfig.js"></script>
     </body>
 </html>
