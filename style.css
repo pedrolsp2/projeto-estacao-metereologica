@@ -179,11 +179,6 @@ article {
     content: url(img/menu.svg);
 }
 
-.wdth{
-    transform: translateX(0px);
-    width: 70%;
-}
-
 #btnMob{
     display: none;
     visibility: hidden;
@@ -231,6 +226,11 @@ section#skLoading article{
     nav{
         width: 100%;
         transition: all 300ms;
+    }
+
+    .wdth{
+        transform: translateX(0px);
+        width: 70%;
     }
 
     aside{

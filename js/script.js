@@ -16,14 +16,6 @@ txtDate.innerHTML = dataFormatada;
 let dashboard = document.querySelector('aside')
 let btnMob = document.querySelector('#btnMob')
 
-window.addEventListener('resize', function() {
-  if (window.innerWidth > 500) {
-    dashboard.style.width = "200px";
-  } else {
-    dashboard.classList.toggle('wdth');
-  }
-});
-
 btnMob.addEventListener("click", () => {
   dashboard.classList.toggle('wdth')
 })
