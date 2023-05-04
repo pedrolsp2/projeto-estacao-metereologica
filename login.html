@@ -15,24 +15,34 @@
     </head>
 <body>
     <main>
-        <section>
+        <section id="container">
             
-            <article>
-                <img src="img/user-login.svg" alt="User Photo">
-                <h1>Entrar</h1>
-                <p>Entre com seu usuário e senha para ter acesso especial no sistema</p>
-            </article>
+            <section id="login">
+                <article>
+                    <img src="img/user-login.svg" alt="User Photo">
+                    <h1>Entrar</h1>
+                    <p>Entre com seu usuário e senha para ter acesso especial no sistema</p>
+                </article>
 
-            <article id="inputs">
-                <span id="user-input">
-                    <img src="img/user-input.svg" alt="Usuario"><input type="text" placeholder="Usuário">                    
-                </span>
-                <span id="pdw-input">
-                    <img src="img/key-input.svg" alt="Usuario"><input type="password" placeholder="Senha">                    
-                </span>
+                <article id="inputs">
+                    <span id="user-input">
+                        <img src="img/user-input.svg" alt="Usuario"><input type="text" placeholder="Usuário">                    
+                    </span>
+                    <span id="pdw-input">
+                        <img src="img/key-input.svg" alt="Usuario">
+                        <input type="password" placeholder="Senha" autocomplete="current-password">
+                        <img src="img/eye.svg" alt="Senha" id="show-password">
+                    </span>
+                </article>
+            </section>
+
+            <article id="buttons">
+                <button id="submit">Entrar</button>
+                <button id="signup">Não tem conta? Cadastre-se agora</button>
             </article>
 
         </section>
     </main>
+    <script src="js/login.js"></script>
 </body>
 </html>

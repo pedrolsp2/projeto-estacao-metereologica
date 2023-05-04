@@ -1,3 +1,12 @@
+/**********HELLO WORD************** */
+
+const localTitle = document.getElementById("localTitle");
+const aside = document.querySelector("aside");
+aside.appendChild(localTitle);
+
+
+
+/************************************* */
 var statusLogin = true;
 
 /**************** PEGA O DIA ATUAL E POE NA TELA ****************/
