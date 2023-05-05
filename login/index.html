@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>LOGIN | Estação Meterológica</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+        <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link
@@ -19,19 +19,19 @@
             
             <section id="login">
                 <article>
-                    <img src="img/user-login.svg" alt="User Photo">
+                    <img src="../img/user-login.svg" alt="User Photo">
                     <h1>Entrar</h1>
                     <p>Entre com seu usuário e senha para ter acesso especial no sistema</p>
                 </article>
 
                 <article id="inputs">
                     <span id="user-input">
-                        <img src="img/user-input.svg" alt="Usuario"><input type="text" placeholder="Usuário">                    
+                        <img src="../img/user-input.svg" alt="Usuario"><input type="text" placeholder="Usuário">                    
                     </span>
                     <span id="pdw-input">
-                        <img src="img/key-input.svg" alt="Usuario">
+                        <img src="../img/key-input.svg" alt="Usuario">
                         <input type="password" placeholder="Senha" autocomplete="current-password">
-                        <img src="img/eye.svg" alt="Senha" id="show-password">
+                        <img src="../img/eye.svg" alt="Senha" id="show-password">
                     </span>
                 </article>
             </section>
@@ -43,6 +43,11 @@
 
         </section>
     </main>
-    <script src="js/login.js"></script>
+    <script src="../js/login.js"></script>
+    <script>
+        document.getElementById('signup').addEventListener("click",()=>{
+            window.location.href = "../sign-up/";
+        })
+    </script>
 </body>
 </html>

@@ -1,12 +1,4 @@
-/**********HELLO WORD************** */
 
-const localTitle = document.getElementById("localTitle");
-const aside = document.querySelector("aside");
-aside.appendChild(localTitle);
-
-
-
-/************************************* */
 var statusLogin = true;
 
 /**************** PEGA O DIA ATUAL E POE NA TELA ****************/
@@ -23,7 +15,7 @@ txtDate.innerHTML = dataFormatada;
 /**************** RESPONSIVIDADE ****************/
 
 let dashboard = document.querySelector('aside')
-let btnMob = document.querySelector('#btnMob')
+var btnMob = document.querySelector('#btnMob')
 
 btnMob.addEventListener("click", () => {
   dashboard.classList.toggle('wdth')

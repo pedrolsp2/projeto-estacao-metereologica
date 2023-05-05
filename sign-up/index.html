@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>LOGIN | Estação Meterológica</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="sign-up.css">
+    </head>
+    <body>
+        <main>
+            <section id="container">
+
+
+                <section id="lgAs">
+                    <span>
+                        <h1 id="boasVindas"></h1>
+                        <p>Preencha os campos e conclua seu cadastro.</p>
+                    </span>
+                    <img src="../img/uemgRascunho.svg" alt="Uemg">
+                </section>
+
+                <section id="containerLogin">
+                    <section id="login">
+                        <article>
+                            <h1>Seus dados</h1>
+                        </article>
+
+                        <article id="inputs">
+                            <span id="user-input">
+                                <img src="../img/name.svg" alt="Nome"><input
+                                    type="text" placeholder="Nome">
+                            </span>
+                            <span id="user-input">
+                                <img src="../img/user-input.svg" alt="Usuario"><input
+                                    type="text" placeholder="E-mail de usuário">
+                            </span>
+                            <span id="pdw-input">
+                                <img src="../img/key-input.svg" alt="Usuario">
+                                <input type="password" placeholder="Senha"
+                                    autocomplete="current-password">
+                                <img src="../img/eye.svg" alt="Senha"
+                                    id="show-password">
+                            </span>
+
+                            <span id="pdw-input">
+                                <img src="../img/key-input.svg" alt="Usuario">
+                                <input type="password" placeholder="Confirme a senha"
+                                    autocomplete="current-password">
+                                <img src="../img/eye.svg" alt="Senha"
+                                    id="show-password">
+                            </span>
+
+
+                            <span id="pdw-input" class="file">
+                                <input type="file" title="Selecionar foto">
+                            </span>
+                        </article>
+                    </section>
+                    <article id="buttons">
+                        <button id="submit">Cadastrar</button>
+                        <button id="signup">Voltar</button>
+                    </article>
+                </section>
+
+            </section>
+        </main>
+        <script src="../js/sign-up.js"></script>
+        <script>
+        document.getElementById('signup').addEventListener("click",()=>{
+            window.location.href = "../login/";
+        })
+    </script>
+    </body>
+</html>
