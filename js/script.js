@@ -23,6 +23,8 @@ btnMob.addEventListener("click", () => {
 
 /***************** JSON ********************/
 
+function dataChartSQL(){
+
 var labelDate = [];
 var dataLabelTemperature = [];
 var dataLabelSolarRadiation = [];
@@ -32,7 +34,7 @@ var dataLabelWind_Speed = [];
 var dataLabelGust_Speed = [];
 var dataLabelWind_Direction = [];
 var dataLabelPressure = [];
-var dataLabelRain = [];
+var dataLabelRain = []; 
 
 const loadingElement = document.getElementById("skLoading");
 const Elemento = document.getElementById("sectionGrafic");
@@ -55,9 +57,10 @@ fetch('../backend/grafic.php')
       dataLabelPressure.push(parseFloat(querry[i].Pressure));
       dataLabelRain.push(parseFloat(querry[i].Rain));
     }
-
-    loadingElement.remove();
-    Elemento.classList.toggle('active');
+      if(loadingElement){
+        loadingElement.remove();
+        Elemento.classList.toggle('active');
+      }
 
     /**************************************************************/
 
@@ -202,3 +205,9 @@ fetch('../backend/grafic.php')
       }]
     });
 }
+ 
+}
+
+
+dataChartSQL();
+setInterval(dataChartSQL,10000)
