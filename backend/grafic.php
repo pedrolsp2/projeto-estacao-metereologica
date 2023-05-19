@@ -8,7 +8,8 @@ class querrySql {
   }
 
   public function getQuerrySql() {
-    $sql = "SELECT * from tabela4";
+   // com servidor $sql = "SELECT * FROM tabela4 WHERE date BETWEEN DATE_SUB(CURDATE(), INTERVAL 7 DAY) AND CURDATE()";
+   $sql = "SELECT * FROM tabela4 WHERE date <= (SELECT MAX(date) FROM tabela4) AND date >= DATE_SUB((SELECT MAX(date) FROM tabela4), INTERVAL 7 DAY)";   
     $result = $this->mysqli->query($sql);
     $data = array();
 

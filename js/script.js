@@ -1,7 +1,7 @@
 
-var statusLogin = true;
+var statusLogin = false;
 
-/**************** PEGA O DIA ATUAL E POE NA TELA ****************/
+/**************** PEGA O DIA ATUAL E POE NA TELA ***************
 
 var txtDate = document.getElementById('atualDay')
 const dataAtual = new Date();
@@ -12,7 +12,7 @@ const ano = dataAtual.getFullYear();
 const dataFormatada = String(dia).length == 1 ? `0${dia} de ${mes} de ${ano}` : `${dia} de ${mes} de ${ano}`
 txtDate.innerHTML = dataFormatada;
 
-/**************** RESPONSIVIDADE ****************/
+/**************** RESPONSIVIDADE ***************
 
 let dashboard = document.querySelector('aside')
 var btnMob = document.querySelector('#btnMob')
@@ -211,3 +211,56 @@ fetch('../backend/grafic.php')
 
 dataChartSQL();
 //setInterval(dataChartSQL,10000)
+ 
+document.addEventListener("DOMContentLoaded", function() {
+  const carouselContainer = document.querySelector(".carousel-container");
+  const carouselItems = document.querySelectorAll(".carousel-item");
+  const prevButton = document.querySelector(".carousel-prev");
+  const nextButton = document.querySelector(".carousel-next");
+  const dotsContainer = document.querySelector(".carousel-dots");
+
+  let currentIndex = 0;
+
+  function showItem(index) {
+    if (index < 0 || index >= carouselItems.length) return;
+    carouselContainer.style.transform = `translateX(-${index * 33.3333}%)`;
+    setCurrentDot(index);
+  }
+
+  function setCurrentDot(index) {
+    const dots = document.querySelectorAll(".carousel-dot");
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
+  }
+
+  function prevSlide(event) {
+    event.preventDefault();
+    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+    showItem(currentIndex);
+  }
+
+  function nextSlide(event) {
+    event.preventDefault();
+    currentIndex = (currentIndex + 1) % carouselItems.length;
+    showItem(currentIndex);
+  }
+
+  function createDots() {
+    for (let i = 0; i < carouselItems.length; i++) {
+      const dot = document.createElement("div");
+      dot.classList.add("carousel-dot");
+      dot.addEventListener("click", function() {
+        showItem(i);
+      });
+      dotsContainer.appendChild(dot);
+    }
+    setCurrentDot(currentIndex);
+  }
+  
+
+  prevButton.addEventListener("click", prevSlide);
+  nextButton.addEventListener("click", nextSlide);
+
+  createDots();
+});
