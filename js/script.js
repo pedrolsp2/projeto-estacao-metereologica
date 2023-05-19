@@ -210,4 +210,4 @@ fetch('../backend/grafic.php')
 
 
 dataChartSQL();
-setInterval(dataChartSQL,10000)
+//setInterval(dataChartSQL,10000)

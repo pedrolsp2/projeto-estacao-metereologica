@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>UEMG | Estação Meterológica</title>
+        <title>AGROMET | UEMG FRUTAL</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,8 +15,15 @@
     </head>
     <body>
 
+        <div class="top-nav">
+            <div class="top-nav-content">
+                <small id="localText">
+                    <img src="img/sun.svg" alt="Sol">
+                    26 ºC
+                </small>
+            </div>
+        </div>
         <nav>
-
             <div class="info-section">
                 <img src="img/menu.svg" alt="Menu" id="btnMob">
                 <img src="img/logo.png" alt="Logo" id="logo">
@@ -36,10 +43,15 @@
             </span>
 
         </nav>
-
+        <section id="carrosel"></section>
+        
         <aside class=""></aside>
-
+        
         <main>
+            <section id="info-temp">
+                <article id="card"></article>
+                <article id="card"></article>
+            </section>
             <section id="sectionGrafic" class="active">
                 <!-- Aqui sera inseridos os graficos via JS -->
             </section>
