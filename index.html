@@ -34,6 +34,7 @@
                     <img src="img/logo-cheio.png" alt="Logo UEMG">
                 </div>
 
+                <span class="material-symbols-outlined" id="btnMob">menu</span>
                 <div class="menu">
                     <ul>
                         <li><a href="">Estações</a></li>
@@ -59,8 +60,7 @@
               <!-- Adicione mais divs de "carousel-item" conforme necessário -->
             </div>
             <a class="carousel-prev" href=""><span>&#8249;</span></a>
-            <a class="carousel-next" href=""><span>&#8250;</span></a>
-            <div class="carousel-dots"></div>
+            <a class="carousel-next" href=""><span>&#8250;</span></a> 
           </div>
           
           
@@ -69,16 +69,44 @@
         
         <main>
             <section id="info-temp">
-                <article id="card"></article>
-                <article id="card"></article>
+                <article id="card">
+                    <div class="info-temperature">
+                        <span>
+                            <small id="atualDay"></small>
+                            <h1 id="atualTemp">32°</h1>
+                        </span>
+
+                        <span>
+                            <p>Tempo limpo</p>
+                            <p>Sensação de <span>34º</span></p>
+                        </span>
+                    </div>
+                    <div class="icon-info-temp">
+                        <!-- <span class="material-symbols-outlined" id="icon-temp"></span> -->
+                        <img src="img/sun.svg" alt="Sol">
+                    </div>
+                </article>
+                <article id="card">
+                    <div class="info-temperature">
+                        <span>
+                            <small id="atualDays"></small>
+                            <h1 id="atualTemp">0%</h1>
+                        </span>
+
+                        <span>
+                            <p></p>
+                            <p>Sem probailidade de chuva</span></p>
+                        </span>
+                    </div>
+                    <div class="icon-info-temp">
+                        <!-- <span class="material-symbols-outlined" id="icon-temp"></span> -->
+                        <img src="img/drop.svg" alt="Sol">
+                    </div>
+                </article>
             </section>
             <section id="sectionGrafic" class="active">
                 <!-- Aqui sera inseridos os graficos via JS -->
             </section>
-
-
-
-
 
 
 
@@ -94,6 +122,7 @@
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/export-data.js"></script>
         <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <script src="js/chart.js"></script>
         <script src="js/script.js"></script>
     </body>
 </html>
