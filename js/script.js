@@ -28,14 +28,33 @@ function formatarNumero(numero) {
 setInterval(atualizarRelogio, 1000);
 
 
-/**************** RESPONSIVIDADE **************
-
-let dashboard = document.querySelector('aside')
-var btnMob = document.querySelector('#btnMob')
+/**************** RESPONSIVIDADE **************/
+ 
+var btnMob = document.querySelector('#btnMob');
 
 btnMob.addEventListener("click", () => {
-  btnMob.innerHTML = "close"
-})
+  if (btnMob.innerHTML === "close") {
+    btnMob.innerHTML = "menu";
+  } else {
+    btnMob.innerHTML = "close";
+  }
+});
+
+var topNav = document.querySelector('.top-nav');
+var nav = document.querySelector('nav');
+
+window.addEventListener("scroll", function() {
+  var topNavHeight = topNav.offsetHeight;
+  
+  if (window.pageYOffset >= topNavHeight) {
+    nav.style.position = "fixed";
+    nav.style.top = "0";
+  } else {
+    nav.style.position = "static";
+  }
+});
+
+
  
 
 /************CARROSSEL****************** */
