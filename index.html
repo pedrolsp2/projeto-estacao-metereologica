@@ -20,7 +20,7 @@
             <div class="top-nav-content">
                 <small id="localText">
                     <span class="material-symbols-outlined">clear_day</span>
-                    26 ºC
+                    <span id="txtTemperatureNav"></span>
                 </small>
                 <select id="optin-estacao">
                     <option value="Frutal">Frutal</option>
@@ -77,11 +77,11 @@
                     <div class="info-temperature">
                         <span>
                             <small id="atualDay"></small>
-                            <h1 id="atualTemp">32°</h1>
+                            <h1 id="atualTemp"></h1>
                         </span>
                         <span>
                             <p>Tempo limpo</p>
-                            <p>Sensação de <span>34º</span></p>
+                            <p>Sensação de <span id="sen"></span></p>
                         </span>
 
                     </div>
@@ -94,7 +94,7 @@
                     <div class="info-temperature">
                         <span>
                             <small id="atualDays"></small>
-                            <h1 id="atualTemp">0%</h1>
+                            <h1 id="atualTempRain"></h1>
                         </span>
 
                         <span>

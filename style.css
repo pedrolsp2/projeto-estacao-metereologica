@@ -131,7 +131,7 @@ section article#card{
     color: #949494;
 }
 
-#atualTemp{
+#atualTemp, #atualTempRain{
     font-size: 3.5em;
     color: #1C4057;
 }

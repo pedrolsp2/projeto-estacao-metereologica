@@ -54,9 +54,6 @@ window.addEventListener("scroll", function() {
   }
 });
 
-
- 
-
 /************CARROSSEL****************** */
  
 document.addEventListener("DOMContentLoaded", function() {
@@ -134,13 +131,21 @@ const probabilidadeChuva = 0.3;
 
 const svg = checkTemperature(temperatura, probabilidadeChuva);
 
-/******************* INFO TEMPO ************************ 
+/******************* INFO TEMPO ************************/
+
+let txtTemperature = document.getElementById('atualTemp')
+let txtTemperatureSen = document.getElementById('sen')
+let txtTemperatureNav = document.getElementById('txtTemperatureNav')
+let atualTempRain =  document.getElementById('atualTempRain')
 
 fetch('../backend/grafic.php')
 .then(response => response.json())
 .then(data => {
 
-  const querry = data.querry;
-  
+  const querry = data.cardData;
+  txtTemperature.innerHTML = `${data.Temperature} °`
+  txtTemperatureNav = `${data.Temperature} °`
+  txtTemperatureSen = `${data.Temperature} °`
+  atualTempRain = `${data.chuva} °`
 
-})*/
+})
